@@ -6,21 +6,16 @@ import {
   People as PeopleIcon,
   ShoppingCart as ShoppingCartIcon,
   Settings as SettingsIcon,
-  Login as LoginIcon,
-  PersonAdd as RegisterIcon,
-  Error as ErrorIcon,
+  Logout  as LogoutIcon,
 } from "@mui/icons-material";
 
 const Sidebar = () => {
   const menuItems = [
-    { text: "Dashboard", icon: <DashboardIcon />, to: "/dashboard" },
+    { text: "Dashboard", icon: <DashboardIcon/>, to: "/dashboard" },
     { text: "Customers", icon: <PeopleIcon />, to: ""},
     { text: "Products", icon: <ShoppingCartIcon />, to: "/ProductsTable" },
     { text: "Settings", icon: <SettingsIcon />, to: "" },
-    { text: "Login", icon: <LoginIcon />, to: "" },
-    { text: "Register", icon: <RegisterIcon />, to: "" },
-    { text: "Error", icon: <RegisterIcon />, to: "" },
-
+    { text: "Logout", icon: <LogoutIcon />, to: "/Logout" },
   ];
 
   return (
