@@ -15,7 +15,7 @@ const TrafficByDevice = () => {
     <Card>
       <CardContent>
         <Typography variant="h6" gutterBottom>Traffic by Device</Typography>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={325}>
           <PieChart>
             <Pie
               data={data}

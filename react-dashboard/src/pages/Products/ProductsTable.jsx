@@ -15,6 +15,7 @@ import {
   IconButton,
   Paper,
   Alert,
+  Snackbar,
 } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
 
@@ -35,6 +36,7 @@ const ProductsTable = () => {
   const [currentProduct, setCurrentProduct] = useState(null);
   const [newProduct, setNewProduct] = useState({ name: '', price: '', quantity: '' });
   const [errors, setErrors] = useState({ name: false, price: false, quantity: false });
+  const [openSnackbar, setOpenSnackbar] = useState(false); // Snackbar state
 
   // Save products to localStorage
   const saveProductsToLocalStorage = (updatedProducts) => {
@@ -83,6 +85,7 @@ const ProductsTable = () => {
     saveProductsToLocalStorage(updatedProducts);
     setOpenDelete(false); // Close the delete confirmation dialog
     setCurrentProduct(null); // Reset CurrentProduct
+    setOpenSnackbar(true); // Show Snackbar after deletion
   };
 
   return (
@@ -99,11 +102,11 @@ const ProductsTable = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>S.N.</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Price</TableCell>
-              <TableCell>Quantity</TableCell>
-              <TableCell>Action</TableCell>
+              <TableCell><h4 style={{ fontWeight: 'bold' }}>S.N.</h4></TableCell>
+              <TableCell><h4 style={{ fontWeight: 'bold' }}>Name</h4></TableCell>
+              <TableCell><h4 style={{ fontWeight: 'bold' }}>Price</h4></TableCell>
+              <TableCell><h4 style={{ fontWeight: 'bold' }}>Quantity</h4></TableCell>
+              <TableCell><h4 style={{ fontWeight: 'bold' }}>Action</h4></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -118,7 +121,7 @@ const ProductsTable = () => {
                     color="primary"
                     onClick={() => {
                       setCurrentProduct(product);
-                      setOpenEdit(true);  //Open the delete confirmation message
+                      setOpenEdit(true);  //Open the edit dialog
                     }}
                   >
                     <Edit />
@@ -127,7 +130,7 @@ const ProductsTable = () => {
                     style={{ color: 'red' }}
                     onClick={() => {
                       setCurrentProduct(product);
-                      setOpenDelete(true);
+                      setOpenDelete(true); // Open delete confirmation dialog
                     }}
                   >
                     <Delete />
@@ -253,8 +256,20 @@ const ProductsTable = () => {
           </Button>
         </DialogActions>
       </Dialog>
+
+      {/* Snackbar for delete success */}
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={3000}
+        onClose={() => setOpenSnackbar(false)}>
+          <Alert onClose={() => setSnackbarOpen(false)} severity='sucess' sx={{width: "100%",backgroundColor: 'white',color: 'green' }}>
+            Customer deleted sucessfully!
+          </Alert>
+        </Snackbar>
     </div>
   );
 };
 
 export default ProductsTable;
+
+

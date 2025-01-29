@@ -1,18 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography, Box } from "@mui/material";
 import {
   Dashboard as DashboardIcon,
   People as PeopleIcon,
   ShoppingCart as ShoppingCartIcon,
   Settings as SettingsIcon,
-  Logout  as LogoutIcon,
+  Logout as LogoutIcon,
 } from "@mui/icons-material";
 
 const Sidebar = () => {
+  const location = useLocation(); // Get current route
+
   const menuItems = [
-    { text: "Dashboard", icon: <DashboardIcon/>, to: "/dashboard" },
-    { text: "Customers", icon: <PeopleIcon />, to: ""},
+    { text: "Dashboard", icon: <DashboardIcon />, to: "/dashboard" },
+    { text: "Customers", icon: <PeopleIcon />, to: "/customers" },
     { text: "Products", icon: <ShoppingCartIcon />, to: "/ProductsTable" },
     { text: "Settings", icon: <SettingsIcon />, to: "" },
     { text: "Logout", icon: <LogoutIcon />, to: "/Logout" },
@@ -42,9 +44,27 @@ const Sidebar = () => {
       </Box>
       <List>
         {menuItems.map((item, index) => (
-          <ListItem button key={index} component={Link} to={item.to}>
-            <ListItemIcon sx={{ color: "white" }}>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.text} sx={{ color: "white" }} />
+          <ListItem
+            button
+            key={index}
+            component={Link}
+            to={item.to}
+            sx={{
+              backgroundColor: location.pathname === item.to ? "primary.main" : "transparent", // Active item background color
+              "&:hover": {
+                backgroundColor: location.pathname === item.to ? "primary.main" : "#424242", // Hover background color for non-active items
+              },
+            }}
+          >
+            <ListItemIcon sx={{ color: "white" }}>
+              {item.icon}
+            </ListItemIcon>
+            <ListItemText
+              primary={item.text}
+              sx={{
+                color: "white", // Make text color white for all items
+              }}
+            />
           </ListItem>
         ))}
       </List>
@@ -53,3 +73,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

@@ -7,6 +7,7 @@ import Login from './pages/login/login';
 import Register from './pages/Register/Register';
 import ProtectedRoute from './pages/ProtectedRoute/ProtectedRoute';
 import Logout from './pages/Logout/Logout';
+import Customers from './pages/customers/customers';
 
 const App = () => {
   return (
@@ -19,6 +20,8 @@ const App = () => {
         {/* Protected routes */}
         <Route path="/dashboard"element={<ProtectedRoute element={<MainLayout><Dashboard /></MainLayout>} />}/>
         <Route path="/ProductsTable"element={<ProtectedRoute element={<MainLayout><Products /></MainLayout>} />}/>
+        <Route path="/customers"element={<ProtectedRoute element={<MainLayout><Customers /></MainLayout>} />}/>
+
         <Route path="/logout" element={<Logout />} />
 
         {/* Redirect unknown paths to login */}
