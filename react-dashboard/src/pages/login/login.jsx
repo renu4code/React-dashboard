@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import {
   Box,
@@ -70,7 +68,8 @@ const Login = () => {
     >
       <Box
         sx={{
-          width: 800,
+          width: 900,
+          height: 500,
           bgcolor: "white",
           borderRadius: 2,
           boxShadow: "0 0 10px rgba(0,0,0,0.1)",

@@ -119,7 +119,8 @@ const Register = () => {
     >
       <Box
         sx={{
-          width: 800,
+          width: 900,
+          height: 600,
           bgcolor: "white",
           borderRadius: 2,
           boxShadow: "0 0 10px rgba(0,0,0,0.1)",

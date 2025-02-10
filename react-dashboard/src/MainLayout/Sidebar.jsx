@@ -16,7 +16,7 @@ const Sidebar = () => {
     { text: "Dashboard", icon: <DashboardIcon />, to: "/dashboard" },
     { text: "Customers", icon: <PeopleIcon />, to: "/customers" },
     { text: "Products", icon: <ShoppingCartIcon />, to: "/ProductsTable" },
-    { text: "Settings", icon: <SettingsIcon />, to: "" },
+    { text: "Settings", icon: <SettingsIcon />, to: "/Settings" },
     { text: "Logout", icon: <LogoutIcon />, to: "/Logout" },
   ];
 
@@ -45,17 +45,17 @@ const Sidebar = () => {
       <List>
         {menuItems.map((item, index) => (
           <ListItem
-            button
-            key={index}
-            component={Link}
-            to={item.to}
-            sx={{
-              backgroundColor: location.pathname === item.to ? "primary.main" : "transparent", // Active item background color
-              "&:hover": {
-                backgroundColor: location.pathname === item.to ? "primary.main" : "#424242", // Hover background color for non-active items
-              },
+          key={index}
+          component={Link}
+          to={item.to}
+          sx={{
+          backgroundColor: location.pathname === item.to ? "primary.main" : "transparent",
+           "&:hover": {
+           backgroundColor: location.pathname === item.to ? "primary.main" : "#424242",
+            },
             }}
-          >
+             >
+
             <ListItemIcon sx={{ color: "white" }}>
               {item.icon}
             </ListItemIcon>

@@ -1,35 +1,56 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, TextField, Box, InputAdornment } from '@mui/material';
-import { Notifications as NotificationsIcon, AccountCircle, Search } from '@mui/icons-material';
+import { IconButton, TextField, InputAdornment, Box, Typography } from '@mui/material';
+import { Notifications as NotificationsIcon, Search } from '@mui/icons-material';
 
 const Header = () => {
   return (
-    <AppBar position="sticky" color="inherit" elevation={1}>
-      <Toolbar>
-        <Box sx={{ flexGrow: 1 }}>
-          <TextField
-            variant="outlined"
-            size="small"
-            fullWidth
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <Search />
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Box>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
+      
+        {/* Left Side */}
+      <Box sx={{ ml: 5}}> 
+        <TextField
+          variant="outlined"
+          size="small"
+          sx={{
+            width: 300,
+            backgroundColor: 'white', 
+            '& .MuiOutlinedInput-root': {
+              backgroundColor: 'transparent', 
+              border: 'none', 
+            },
+            '& .MuiInputBase-root': {
+              padding: 0, 
+            }
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start" sx={{ pl: 1 }}>
+                <Search />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Box>
 
-        <IconButton>
+      {/* Right Side - Notification, Picture, and Name */}
+      <Box sx={{ display: 'flex', alignItems: 'center', mr: 5 }}>
+        <IconButton sx={{ p: 1 }}>
           <NotificationsIcon />
         </IconButton>
 
-        <IconButton>
-          <AccountCircle />
-        </IconButton>
-      </Toolbar>
-    </AppBar>
+        {/* Picture and Name */}
+        <Box sx={{ display: 'flex', alignItems: 'center', ml: 2 }}>
+          <img 
+            src="./133798587135091506.jpg" 
+            alt="Your Name" 
+            style={{ width: 40, height: 40, borderRadius: '50%' }} 
+          />
+          <Typography variant="body1" sx={{ ml: 1 }}>
+            Renu Chand
+          </Typography>
+        </Box>
+      </Box>
+    </div>
   );
 };
 

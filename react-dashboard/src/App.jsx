@@ -8,6 +8,7 @@ import Register from './pages/Register/Register';
 import ProtectedRoute from './pages/ProtectedRoute/ProtectedRoute';
 import Logout from './pages/Logout/Logout';
 import Customers from './pages/customers/customers';
+import Settings from './pages/Settings/Settings';
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
         <Route path="/dashboard"element={<ProtectedRoute element={<MainLayout><Dashboard /></MainLayout>} />}/>
         <Route path="/ProductsTable"element={<ProtectedRoute element={<MainLayout><Products /></MainLayout>} />}/>
         <Route path="/customers"element={<ProtectedRoute element={<MainLayout><Customers /></MainLayout>} />}/>
+        <Route path="/Settings"element={<ProtectedRoute element={<MainLayout><Settings/></MainLayout>} />}/>
+
 
         <Route path="/logout" element={<Logout />} />
 

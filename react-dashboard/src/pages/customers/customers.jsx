@@ -154,11 +154,11 @@ const Customers = () => {
     <Box p={3}>
       {/* Summary Section */}
       <Box display="flex" gap={2} mb={3} justifyContent="space-between">
-        <Paper elevation={3} sx={{ p: 2, textAlign: "center" ,width: 200, height: 40, bgcolor:"primary.main",color: "white"}}>
+        <Paper elevation={3} sx={{ p: 1, textAlign: "center" ,width: 200, height: 50, bgcolor:"primary.main",color: "white"}}>
           <Typography variant="subtitle1">Total Customers</Typography>
           <Typography variant="h6">{customers.length}</Typography>
         </Paper>
-        <Paper elevation={3} sx={{ p: 2, textAlign: "center", width: 200, height: 40, bgcolor:"green", color:"white" }}>
+        <Paper elevation={3} sx={{ p: 1, textAlign: "center", width: 200, height: 50, bgcolor:"green", color:"white" }}>
           <Typography variant="subtitle1">Active Customer </Typography>
           <Typography variant="h6">
             {customers.filter((customer) => customer.status === "Active").length}
@@ -168,7 +168,7 @@ const Customers = () => {
           variant="contained"
           color="primary"
           onClick={() => setAddOpen(true)}
-          sx={{ width: 200, height: 73 }}
+          sx={{ width: 200, height: 65 }}
         >
           Add Customer
         </Button>
